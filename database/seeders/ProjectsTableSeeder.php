@@ -15,13 +15,22 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
+
+
         for ($i = 0; $i < 10; $i++) {
+
             $newProject = new Project();
+
             $newProject->name = $faker->sentence(3);
             $newProject->customer = $faker->company();
-            $newProject->project_start = $faker->date('Y_m_d');
-            $newProject->project_end = $faker->date('Y_m_d');
+
+            $start = $faker->dateTimeBetween('-2 years', 'now');
+            $end = $faker->dateTimeBetween($start, '+1 years');
+            $newProject->project_start = $start->format('Y_m_d');
+            $newProject->project_end = $end->format('Y_m_d');
+
             $newProject->summary = $faker->paragraph();
+
             $newProject->save();
         }
     }
