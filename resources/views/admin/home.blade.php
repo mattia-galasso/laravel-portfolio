@@ -1,10 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Administration')
     
 @section('content')
-    <h1 class="text-center my-5">Pagina di Amministrazione del Sito</h1>
-    <div class="my-5 text-center">
-        <a href="{{ route('projects.index') }}"><button class="btn btn-primary">Project List</button></a>
-    </div>
+    <h1 class="text-center mt-5">Benvenuto {{ Auth::user()->name }}</h1>
+    <h1 class="text-center ">Nella Pagina di Amministrazione del Sito</h1>
+    
 @endsection

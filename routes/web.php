@@ -30,7 +30,7 @@ Route::middleware(['auth', 'verified'])
             ->name('index');
     });
 
-/* RESOURCE ADMIN ROUTE */
+/* PROJECTS BACKOFFICE ROUTE */
 Route::resource('projects', ProjectController::class)
     ->middleware(['auth', 'verified']);
 

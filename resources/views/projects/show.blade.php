@@ -15,7 +15,11 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <div class="my-3 d-flex justify-content-around align-items-center">
+                    <div class="my-3 d-flex justify-content-around align-items-center text-center">
+                        <div class="my-3">
+                            <small class="text-primary fw-bold">Categoria:</small>
+                            <p class="my-0">{{ $project->category }}</p>
+                        </div>
                         <div>
                             <small class="text-primary fw-bold">Data Inizio:</small>
                             <p class="my-0">{{ date('d-m-Y', strtotime($project->project_start)) }}</p>
@@ -38,7 +42,6 @@
                         <p class="my-0">{{ $project->summary }}</p>
                     </div>
                 </li>
-
             </ul>
         </div>
     </div>

@@ -1,4 +1,4 @@
-# EX - Setup Laravel Portfolio
+# EX - CRUD Progetti (parte 1)
 
 > Nome repo: `laravel-portfolio`
 
