@@ -23,7 +23,7 @@ class ProjectsTableSeeder extends Seeder
 
             $newProject->name = $faker->sentence(3);
             $newProject->customer = $faker->company();
-            $newProject->category = $faker->randomElement(['Front-end', 'Back-end', 'Web Design', 'Full-Stack']);
+            $newProject->type_id = rand(1, 6);
             //
             $start = $faker->dateTimeBetween('-2 years', 'now');
             $end = $faker->dateTimeBetween($start, '+1 years');
