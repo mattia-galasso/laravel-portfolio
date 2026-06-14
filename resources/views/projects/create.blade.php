@@ -29,13 +29,12 @@
                     <input type="date" class="form-control" id="project_end" name="project_end">
                 </div>
                 <div class="col-4">
-                    <label for="category" class="form-label">Categoria</label>
-                    <select id="category" name="category" class="form-select">
-                        <option selected>Seleziona Categoria...</option>
-                        <option>Front-end</option>
-                        <option>Back-end</option>
-                        <option>Web Design</option>
-                        <option>Full-Stack</option>
+                    <label for="type_id" class="form-label">Tipologia</label>
+                    <select id="category" name="type_id" class="form-select">
+                        <option selected disabled>Seleziona Tipologia...</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-12">

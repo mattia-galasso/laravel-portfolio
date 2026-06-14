@@ -1,36 +1,30 @@
 @extends('layouts.projects')
 
-@section('title', 'Projects List')
+@section('title', 'Types List')
 
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="text-center">Projects List</h1>
-        <a href="{{ route('projects.create') }}" class="btn btn-success">Nuovo Progetto</a>
+        <h1 class="text-center">Types List</h1>
+        <a href="{{ route('types.create') }}" class="btn btn-success">Nuova Tipologia</a>
     </div>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">Nome</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Inizio Progetto</th>
-                <th scope="col">Fine Progetto</th>
-                <th scope="col">Tipologia</th>
+                <th scope="col">Descrizione</th>
                 <th scope="col" class="text-center">Azioni</th>
             </tr>
         </thead>
         <tbody>
-            @forelse ($projects as $project)
+            @forelse ($types as $type)
                 <tr class="align-middle">
-                    <td scope="row">{{ $project->name }}</td>
-                    <td>{{ $project->customer }}</td>
-                    <td>{{ $project->project_start }}</td>
-                    <td>{{ $project->project_end }}</td>
-                    <td>{{ $project->type->name }}</td>
+                    <td scope="row">{{ $type->name }}</td>
+                    <td>{{ $type->description }}</td>
                     <td class="text-center">
                         <div class="btn-group" role="group" aria-label="View, Edit and Delete Buttons">
-                            <a href="{{ Route('projects.show', $project) }}" class="btn btn-primary"><i class="bi bi-eye"></i></a>
-                            <a href="{{ Route('projects.edit', $project) }}" class="btn btn-warning"><i class="bi bi-pencil"></i></a>
+                            <a href="{{ Route('types.show', $type) }}" class="btn btn-primary"><i class="bi bi-eye"></i></a>
+                            <a href="{{ Route('types.edit', $type) }}" class="btn btn-warning"><i class="bi bi-pencil"></i></a>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 <i class="bi bi-trash3"></i>
                             </button>
@@ -57,7 +51,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <form action="{{ route('projects.destroy', $project) }}" method="POST">
+                <form action="{{ route('types.destroy', $type) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <input type="submit" class="btn btn-danger" value="Elimina Definitivamente">

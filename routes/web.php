@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -32,6 +33,10 @@ Route::middleware(['auth', 'verified'])
 
 /* PROJECTS BACKOFFICE ROUTE */
 Route::resource('projects', ProjectController::class)
+    ->middleware(['auth', 'verified']);
+
+/* TYPES BACKOFFICE ROUTE */
+Route::resource('types', TypeController::class)
     ->middleware(['auth', 'verified']);
 
 require __DIR__ . '/auth.php';
