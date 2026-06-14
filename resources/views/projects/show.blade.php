@@ -1,6 +1,6 @@
 @extends('layouts.projects')
 
-@section('title', 'Projects List')
+@section('title', $project->name)
 
 @section('content')
 <div class="container">
