@@ -26,7 +26,11 @@
                     <div class="my-3 d-flex justify-content-around align-items-center text-center">
                         <div class="my-3">
                             <small class="text-primary fw-bold">Categoria:</small>
-                            <p class="my-0">{{ $project->type->name }}</p>
+                            @if ($project->type_id === null)
+                                <p class="my-0">Nessuna Tipologia</p>
+                            @else
+                                <p class="my-0">{{ $project->type->name }}</p>
+                            @endif
                         </div>
                         <div>
                             <small class="text-primary fw-bold">Data Inizio:</small>

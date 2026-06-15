@@ -26,7 +26,11 @@
                     <td>{{ $project->customer }}</td>
                     <td>{{ $project->project_start }}</td>
                     <td>{{ $project->project_end }}</td>
-                    <td>{{ $project->type->name }}</td>
+                    @if ($project->type_id === null)
+                        <td>Nessuna Tipologia</td>
+                    @else
+                        <td>{{ $project->type->name }}</td>
+                    @endif
                     <td class="text-center">
                         <div class="btn-group" role="group" aria-label="View, Edit and Delete Buttons">
                             <a href="{{ Route('projects.show', $project) }}" class="btn btn-primary"><i class="bi bi-eye"></i></a>

@@ -63,11 +63,6 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        if ($type->id === 1) {
-            return redirect()->route('types.index')
-                ->with('error', 'Non puoi modificare la tipologia di default.');
-        }
-
         $data = $request->all();
         $type->update($data);
         return redirect()->route('types.show', $type);
@@ -78,11 +73,6 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        if ($type->id === 1) {
-            return redirect()->route('types.index')
-                ->with('error', 'Non puoi modificare la tipologia di default.');
-        }
-        $type->project()->update(['type_id' => 1]);
         $type->delete();
         return redirect()->route('types.index');
     }

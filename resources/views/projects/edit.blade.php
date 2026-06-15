@@ -32,9 +32,16 @@
                 <div class="col-4">
                     <label for="type_id" class="form-label">Tipologia</label>
                     <select id="category" name="type_id" class="form-select">
-                        @foreach ($types as $type)
-                            <option value="{{ $type->id }}" {{ $type->id === $project->type_id ? 'selected' : '' }}>{{ $type->name }}</option>
-                        @endforeach
+                        @if ($project->type_id === null)
+                            <option value="null" selected disabled>Nessuna Tipologia</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                            @endforeach
+                        @else
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" {{ $type->id === $project->type_id ? 'selected' : '' }}>{{ $type->name }}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
                 <div class="col-12">

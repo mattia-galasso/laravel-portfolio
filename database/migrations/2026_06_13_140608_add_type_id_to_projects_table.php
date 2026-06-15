@@ -16,7 +16,10 @@ return new class extends Migration
             $table->dropColumn('category');
 
             // Creo Colonna type_id e assegno foreign key e constrained
-            $table->foreignId('type_id')->default(1)->constrained();
+            $table->foreignId('type_id')
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
         });
     }
 
