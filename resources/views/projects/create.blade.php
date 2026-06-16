@@ -20,22 +20,31 @@
                     <label for="customer" class="form-label">Cliente</label>
                     <input type="text" class="form-control" id="customer" name="customer">
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <label for="project_start" class="form-label">Inizio Progetto</label>
                     <input type="date" class="form-control" id="project_start" name="project_start">
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <label for="project_end" class="form-label">Fine Progetto</label>
                     <input type="date" class="form-control" id="project_end" name="project_end">
                 </div>
-                <div class="col-4">
-                    <label for="type_id" class="form-label">Tipologia</label>
+                <div class="col-6">
+                    <label for="type_id" class="form-label">Categoria</label>
                     <select id="category" name="type_id" class="form-select">
-                        <option selected disabled>Seleziona Tipologia...</option>
+                        <option selected disabled>Seleziona Categoria...</option>
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center gap-3">
+                    <span class="align-self-start">Tecnologie</span>
+                    <div>
+                        @foreach ($technologies as $technology)
+                        <input class="form-check-input me-1" type="checkbox" value="{{$technology->id}}" id="technology-{{$technology->id}}" name="technologies[]">
+                        <label for="technology-{{$technology->id}}" class="form-label me-3">{{$technology->name}}</label>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="col-12">
                     <label for="summary" class="form-label">Riassunto</label>

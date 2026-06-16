@@ -15,7 +15,7 @@ class TypesTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $types = ['Laravel', 'PHP', 'MySql', 'Full-Stack', 'Videogames'];
+        $types = ['Videogames', 'Web App', 'E-commerce', 'API', 'Portfolio'];
 
         foreach ($types as $type) {
             $newType = new Type();

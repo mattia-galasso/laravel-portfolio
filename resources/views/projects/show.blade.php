@@ -23,22 +23,32 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <div class="my-3 d-flex justify-content-around align-items-center text-center">
-                        <div class="my-3">
+                    <div class="my-3 text-center row">
+                        <div class="col-3">
                             <small class="text-primary fw-bold">Categoria:</small>
                             @if ($project->type_id === null)
-                                <p class="my-0">Nessuna Tipologia</p>
+                                <p class="my-0">Nessuna Categoria</p>
                             @else
                                 <p class="my-0">{{ $project->type->name }}</p>
                             @endif
                         </div>
-                        <div>
+                        <div class="col-3">
                             <small class="text-primary fw-bold">Data Inizio:</small>
                             <p class="my-0">{{ date('d-m-Y', strtotime($project->project_start)) }}</p>
                         </div>
-                        <div>
+                        <div class="col-3">
                             <small class="text-primary fw-bold">Data Fine:</small>
                             <p class="my-0">{{ date('d-m-Y', strtotime($project->project_end)) }}</p>
+                        </div>
+                        <div class="col-3 d-flex flex-column justify-content-center align-items-center flex-wrap">
+                            <small class="text-primary fw-bold">Tecnologie:</small>
+                            <div>
+                            @forelse ($project->technologies as $technology)
+                                <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
+                            @empty
+                                <p class="my-0">Nessuna Tecnologia</p>
+                            @endforelse
+                            </div>
                         </div>
                     </div>
                 </li>
