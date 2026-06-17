@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Technology extends Model
 {
+    protected $fillable = [
+        'name',
+        'color'
+    ];
+
     public function projects()
     {
         return $this->belongsToMany(Project::class);

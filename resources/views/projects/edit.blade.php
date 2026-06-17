@@ -44,12 +44,14 @@
                         @endif
                     </select>
                 </div>
-                <div class="col-6 d-flex flex-column justify-content-center align-items-center gap-3">
-                    <span class="align-self-start">Tecnologie</span>
-                    <div>
+                <div class="col-6 d-flex flex-column gap-3">
+                    <span class="">Tecnologie</span>
+                    <div class="d-flex flex-wrap justify-content-center align-items-end gap-2">
                         @foreach ($technologies as $technology)
-                        <input class="form-check-input me-1" type="checkbox" value="{{$technology->id}}" id="technology-{{$technology->id}}" name="technologies[]" {{$project->technologies->contains($technology->id) ? 'checked' : ''}}>
-                        <label for="technology-{{$technology->id}}" class="form-label me-3">{{$technology->name}}</label>
+                        <div>
+                            <input class="form-check-input" type="checkbox" value="{{$technology->id}}" id="technology-{{$technology->id}}" name="technologies[]" {{$project->technologies->contains($technology->id) ? 'checked' : ''}}>
+                            <label for="technology-{{$technology->id}}" class="form-label m-0 me-4">{{$technology->name}}</label>
+                        </div>
                         @endforeach
                     </div>
                 </div>

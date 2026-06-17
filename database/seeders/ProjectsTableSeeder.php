@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Faker\Generator as Faker;
 
@@ -18,6 +19,7 @@ class ProjectsTableSeeder extends Seeder
     {
 
         $types = Type::all();
+        $technologies = Technology::all();
 
         for ($i = 0; $i < 10; $i++) {
 
@@ -36,6 +38,8 @@ class ProjectsTableSeeder extends Seeder
             $newProject->summary = $faker->paragraph();
 
             $newProject->save();
+
+            $newProject->technologies()->sync($faker->randomElements($technologies, 2));
         }
     }
 }
