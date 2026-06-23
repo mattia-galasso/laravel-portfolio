@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
 
     <!-- Favicon-->
-    <link rel="icon" href="{{ Vite::asset('resources/img/logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ Vite::asset('resources/img/favicon.ico') }}" type="image/ico">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

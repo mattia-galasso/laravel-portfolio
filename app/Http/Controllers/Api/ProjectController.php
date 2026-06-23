@@ -22,7 +22,7 @@ class ProjectController extends Controller
         $project->load('type', 'technologies');
         return response()->json([
             'success' => true,
-            'data' => $project
+            'results' => $project
         ]);
     }
 }
